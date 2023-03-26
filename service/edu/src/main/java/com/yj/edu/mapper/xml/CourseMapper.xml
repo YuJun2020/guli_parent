@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yj.edu.mapper.CourseMapper">
+    <select id="getCoursePublishInfo" resultType="Map">
+        SELECT
+	course.id,
+	course.title AS name,
+	course.price,
+	course.cover,
+	course.lesson_num as lessonNum,
+	teacher.NAME AS teacherName,
+	onesubject.title AS onesubject,
+	twosubject.title AS twosubject
+FROM
+	edu_course course
+	LEFT JOIN edu_teacher teacher ON course.teacher_id = teacher.id
+	LEFT JOIN edu_subject onesubject ON course.subject_parent_id = onesubject.id
+	LEFT JOIN edu_subject twosubject ON course.subject_id = twosubject.id
+WHERE
+	course.id =#{courseId}
+    </select>
+
+	<select id="getCourseDetail" resultType="Map">
+		SELECT
+	course.id,
+	course.title,
+	course.price,
+	course.lesson_num AS lessonNum,
+	course.cover,
+	course.buy_count AS buyCount,
+	course.view_count AS viewCount,
+	description.description,
+	teacher.id AS teacherId,
+	teacher.NAME AS teacherName,
+	teacher.intro,
+	teacher.avatar,
+	onesub.id AS subjectLevelOneId,
+	onesub.title AS onesubject,
+	twosub.id AS subjectLevelTwoId,
+	twosub.title AS twosubject
+FROM
+	edu_course course
+	LEFT JOIN edu_course_description description ON course.id = description.id
+	LEFT JOIN edu_teacher teacher ON course.teacher_id = teacher.id
+	LEFT JOIN edu_subject onesub ON course.subject_parent_id = onesub.id
+	LEFT JOIN edu_subject twosub ON course.subject_id = twosub.id
+	WHERE course.id = #{courseId}
+	</select>
+
+</mapper>

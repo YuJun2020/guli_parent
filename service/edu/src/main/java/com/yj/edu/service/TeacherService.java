@@ -1,7 +1,11 @@
 package com.yj.edu.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yj.edu.entity.Teacher;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -13,4 +17,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface TeacherService extends IService<Teacher> {
 
+    List<Teacher> getHotTeachers();
+
+    Map<String, Object> getTeacherList(Page page);
 }

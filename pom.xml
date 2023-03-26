@@ -5,6 +5,7 @@
     <modules>
         <module>service</module>
         <module>common</module>
+        <module>infrastructure</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -91,7 +92,7 @@
             <dependency>
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
-                <version>${aliyun.oss.version}</version>
+                <version>${aliyun-sdk-oss.version}</version>
             </dependency>
             <!--日期时间工具-->
             <dependency>
@@ -146,11 +147,11 @@
                 <artifactId>aliyun-java-sdk-core</artifactId>
                 <version>${aliyun-java-sdk-core.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.aliyun.oss</groupId>
-                <artifactId>aliyun-sdk-oss</artifactId>
-                <version>${aliyun-sdk-oss.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.aliyun.oss</groupId>-->
+<!--                <artifactId>aliyun-sdk-oss</artifactId>-->
+<!--                <version>${aliyun-sdk-oss.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>com.aliyun</groupId>
                 <artifactId>aliyun-java-sdk-vod</artifactId>

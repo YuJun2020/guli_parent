@@ -4,6 +4,7 @@ package com.yj.edu.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yj.base.exceptionHandler.GuliException;
 import com.yj.edu.entity.Teacher;
 import com.yj.edu.entity.vo.TeacherQuery;
 import com.yj.edu.service.TeacherService;
@@ -34,10 +35,21 @@ public class TeacherController {
     @Autowired
     private TeacherService teacherService;
 
+    @ApiOperation(value = "查询全部讲师")
+    @GetMapping("queryAll")
+    public R queryAll(){
+        List<Teacher> list = teacherService.list(null);
+        return R.ok().data("list",list);
+    }
+
     @ApiOperation(value = "查询列表")
     @PostMapping("queryList/{pageIndex}/{pageSize}")
     public R queryList(@PathVariable Long pageIndex, @PathVariable Long pageSize, @RequestBody(required = false) TeacherQuery teacherQuery){
-        int aaa = 10/0;
+//        try{
+//            int aaa = 10/0;
+//        }catch (Exception e){
+//            throw new GuliException(2001,"自定义异常");
+//        }
         Page<Teacher> page = new Page<>(pageIndex,pageSize);
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         String name = teacherQuery.getName();
@@ -56,6 +68,7 @@ public class TeacherController {
         if(!StringUtils.isEmpty(end)){
             wrapper.le("gmt_modified",end);
         }
+        wrapper.orderByDesc("gmt_modified");
         IPage<Teacher> result = teacherService.page(page, wrapper);
         HashMap<String, Object> map = new HashMap<>();
         map.put("rows",result.getRecords());
@@ -70,10 +83,11 @@ public class TeacherController {
         return b ? R.ok() : R.error();
     }
 
-    @ApiOperation(value = "添加讲师")
-    @PostMapping("insertTeacher")
-    public R insertTeacher(@RequestBody Teacher teacher){
-        boolean b = teacherService.save(teacher);
+    @ApiOperation(value = "添加/编辑讲师")
+    @PostMapping("saveOrUpdate")
+    public R saveOrUpdate(@RequestBody Teacher teacher){
+        String id = teacher.getId();
+        boolean b = StringUtils.isEmpty(id) ? teacherService.save(teacher) : teacherService.updateById(teacher);
         return b ? R.ok() : R.error();
     }
 

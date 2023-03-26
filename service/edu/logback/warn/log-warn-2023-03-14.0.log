@@ -1,0 +1,15 @@
+2023-03-14 16:27:58.493 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 16:27:58.502 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 17:55:34.908 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 17:55:34.913 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 18:08:44.797 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 18:08:44.804 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 18:11:29.450 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 18:11:29.460 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 18:12:25.010 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 18:12:25.018 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 18:17:39.145 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 18:17:39.151 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2023-03-14 18:18:54.645 [lettuce-nioEventLoop-4-2] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [192.168.145.1:6379]: Connection refused: no further information: /192.168.145.1:6379
+2023-03-14 18:19:00.987 [lettuce-nioEventLoop-4-5] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [192.168.145.1:6379]: Connection refused: no further information: /192.168.145.1:6379
+2023-03-14 18:19:07.398 [lettuce-nioEventLoop-4-8] WARN  io.lettuce.core.protocol.ConnectionWatchdog - Cannot reconnect to [192.168.145.1:6379]: Connection refused: no further information: /192.168.145.1:6379
